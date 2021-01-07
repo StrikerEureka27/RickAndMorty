@@ -1,8 +1,13 @@
 
 
-.test{ 
+.card{ 
+
+    font-size: 90%;
     width: 17%;
-    margin: 10px;
+    height: 100%;
+    margin: 4px;
+    margin-left: 20px ;
     float: left;
 }
+
 
