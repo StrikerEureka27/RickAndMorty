@@ -1,4 +1,4 @@
-import { sendDataWithCallback, sendDataWithPromises } from './sendData.js';
+import { sendDataWithCallback, sendDataWithPromises, sendDataWithAsyncAwait } from './sendData.js';
 import {sendTemplate } from './template.js';
 
 const API = 'https://rickandmortyapi.com/api/character/';
@@ -44,6 +44,16 @@ const objectToArray = (i, data) => {
 }
 
 
+const obtainRickAndMortyData3 = async (i) =>{
+    try {
+        const data = await sendDataWithAsyncAwait(API);
+            sendTemplate(objectToArray(i, data), i, 3);
+    } catch (error) {
+        console.error(error);
+    }   
+}
+
+
 
 
 
@@ -53,6 +63,11 @@ for(let i=0; i<MAXCHARACTER; i++){
 
 for(let i=5; i<10; i++){
     obtainRickAndMortyData2(i);
+}
+
+
+for(let i=10; i<15; i++){
+    obtainRickAndMortyData3(i);
 }
 
 

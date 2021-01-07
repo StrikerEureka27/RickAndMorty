@@ -37,8 +37,28 @@ const sendDataWithPromises = url_api => {
     })
 }
 
+const sendDataWithAsyncAwait = url_api =>{
+    return new Promise((resolve, reject) => {
+        try {
+            var xml3 = new XMLHttpRequest();
+            xml3.open('GET', url_api, true);
+            xml3.onreadystatechange =  event =>{
+                if(xml3.readyState === 4) {
+                    if(xml3.status === 200){
+                        resolve(JSON.parse(xml3.responseText));
+                    }
+                }
+            }
+        } catch (error) {
+            const msjError = new Error(error + url_api);
+            reject(msjError);
+        }
+        xml3.send();
+    })
+}
+
 
     
 
-export { sendDataWithCallback, sendDataWithPromises };
+export { sendDataWithCallback, sendDataWithPromises, sendDataWithAsyncAwait };
 

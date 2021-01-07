@@ -1,5 +1,6 @@
 const templateCard = document.getElementById('card');
 const templateCardPromise = document.getElementById('card2');
+const templateCardAsync = document.getElementById('card3');
 
 
 const sendTemplate = (object, i, typecall) => {
@@ -15,13 +16,13 @@ const sendTemplate = (object, i, typecall) => {
         </div>
     </div>
     `
-    if (typecall===1){
-        templateCard.appendChild(card);
-    }
+    if (typecall===1) return templateCard.appendChild(card);
     
-    if (typecall===2){
-        templateCardPromise.appendChild(card);
-    }
+    if (typecall===2) return templateCardPromise.appendChild(card);
+
+    if(typecall===3) return templateCardAsync.appendChild(card);
+
+
      
 }
 
