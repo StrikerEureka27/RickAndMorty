@@ -15,7 +15,7 @@ const sendTemplate = (object, i, typecall) => {
             <div class="card-body">
                 <h5 class="card-title">${object[i].name}</h5>
                 <p class="card-text"> Origin: ${object[i].id}</p>
-                <p class="card-text"> Status: ${object[i].status}</p> 
+                <p class="${object[i].status.toLowerCase()} card-text"> Status: ${object[i].status}</p> 
             </div>
         </div>
     `
